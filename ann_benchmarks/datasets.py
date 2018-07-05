@@ -226,7 +226,8 @@ def word2bits(out_fn, path, fn):
 
 
 def sign_language_digits(out_fn):
-    X = np.load('X.npy')
+    X = numpy.load('data/sign-language-digits.npy')
+    X = X.reshape(X.shape[0], -1)
     X_train, X_test = train_test_split(X, test_size=0.1)
     print("train shape ", X_train.shape)
     print("test shape ", X_test.shape)
