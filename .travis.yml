@@ -20,7 +20,6 @@ env:
   - LIBRARY=hnswlib
   - LIBRARY=panns
   - LIBRARY=pynndescent
-  - LIBRARY=rpforest
   - LIBRARY=sklearn
 
 before_install:
