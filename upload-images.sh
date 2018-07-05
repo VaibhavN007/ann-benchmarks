@@ -45,8 +45,7 @@ git config --global user.name 'VaibhavN007'
 git config --global user.email 'vaibhavnit007@gmail.com'
 
 #using token clone the required branch
-git clone 
-git clone --quiet https://VaibhavN007:${GH_TOKEN}@github.com/VaibhavN007/ann-results > /dev/null
+git clone --quiet https://VaibhavN007:${GH_TOKEN}@github.com/VaibhavN007/ann-results
 
 #go into diractory and copy data we're interested in to that directory
 cd ann-results
@@ -55,6 +54,6 @@ cp -Rf $HOME/eval_results/* .
 #add, commit and push files
 git add -f .
 git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
-git push -fq origin master > /dev/null
+git push -fq origin master
 
 echo -e "Done magic with results\n"
