@@ -46,7 +46,7 @@ git config --global user.email 'vaibhavnit007@gmail.com'
 
 #using token clone the required branch
 git clone 
-git clone --quiet https://VaibhavN007:{GITHUB_API_KEY}@github.com/VaibhavN007/ann-results > /dev/null
+git clone --quiet https://VaibhavN007:${GH_TOKEN}@github.com/VaibhavN007/ann-results > /dev/null
 
 #go into diractory and copy data we're interested in to that directory
 cd ann-results
