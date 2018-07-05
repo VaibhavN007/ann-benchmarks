@@ -6,4 +6,4 @@ git remote add origin https://VaibhavN007:${GITHUB_API_KEY}@github.com/VaibhavN0
 
 git add *
 git commit -m "First push using API key"
-git push origin deploy_glove
+git push -f origin deploy_glove
