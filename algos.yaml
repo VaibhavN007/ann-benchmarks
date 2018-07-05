@@ -409,6 +409,7 @@ float:
             - False
           query-args: [[120, 80, 60, 40, 20, 10, 8, 4, 2]]
     rpforest:
+      disabled: true
       docker-tag: ann-benchmarks-rpforest
       module: ann_benchmarks.algorithms.rpforest
       constructor: RPForest

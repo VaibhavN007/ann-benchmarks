@@ -8,38 +8,31 @@ services:
   - docker
 
 env:
-  - LIBRARY=annoy
-  - LIBRARY=dolphinn
-  - LIBRARY=faiss
-  - LIBRARY=flann
+  # - LIBRARY=annoy
+  # - LIBRARY=dolphinn
+  # - LIBRARY=faiss
+  # - LIBRARY=flann
   - LIBRARY=kgraph
-  - LIBRARY=mrpt
-  - LIBRARY=nearpy
-  - LIBRARY=ngt
-  - LIBRARY=nmslib
-  - LIBRARY=hnswlib
-  - LIBRARY=panns
-  - LIBRARY=pynndescent
-  - LIBRARY=rpforest
-  - LIBRARY=sklearn
+  # - LIBRARY=mrpt
+  # - LIBRARY=nearpy
+  # - LIBRARY=ngt
+  # - LIBRARY=nmslib
+  # - LIBRARY=hnswlib
+  # - LIBRARY=panns
+  # - LIBRARY=pynndescent
+  # - LIBRARY=rpforest
+  # - LIBRARY=sklearn
 
 before_install:
   - pip install -r requirements.txt
   - python install.py
 
 script:
-  - python run.py --docker-tag ann-benchmarks-${LIBRARY} --max-n-algorithms 5 --dataset sign-language-digits --run-disabled
+  # - python run.py --docker-tag ann-benchmarks-${LIBRARY} --max-n-algorithms 5 --dataset sign-language-digits --run-disabled
+  - python run.py --algorithm kgraph --dataset sign-language-digits
   - python plot.py --dataset sign-language-digits --output plot.png
   - python -m unittest test/test-metrics.py
   - python create_website.py --outputdir . --scatter --latex
-deploy:
-  provider: releases
-  api_key:
-    secure: 834d0b3a98e2273d8f0be8e51cd211aaa2bb5f1e
-  file: 
-    - results/sign-language-digits.png
-    - results/sift-128-euclidean.png
-  skip_cleanup: true
-  on:
-    repo: VaibhavN007/ann-benchmarks
-    tags: true
+after_success:
+  - chmod 777 upload-images.sh
+  - bash upload-images.sh
