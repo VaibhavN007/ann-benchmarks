@@ -29,7 +29,7 @@ before_install:
 
 script:
   - python run.py --docker-tag ann-benchmarks-${LIBRARY} --max-n-algorithms 5 --dataset glove-25-angular --run-disabled
-  - python plot.py --dataset sign-language-digits --output plot.png
+  - python plot.py --dataset glove-25-angular --output plot.png
   - python -m unittest test/test-metrics.py
   - python create_website.py --outputdir . --scatter --latex
 deploy:
@@ -37,8 +37,7 @@ deploy:
   api_key:
     secure: 834d0b3a98e2273d8f0be8e51cd211aaa2bb5f1e
   file: 
-    - results/sign-language-digits.png
-    - results/sift-128-euclidean.png
+    - results/glove-25-angular.png
   skip_cleanup: true
   on:
     repo: VaibhavN007/ann-benchmarks
