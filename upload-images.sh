@@ -14,7 +14,7 @@ git status
 
 cd $HOME
 git clone https://VaibhavN007:{GITHUB_API_KEY}@github.com/VaibhavN007/ann-results
-ls -R
+ls
 cd ann-results/
 cp ../ann-benchmarks/*.html
 cp ../ann-benchmarks/*.png
