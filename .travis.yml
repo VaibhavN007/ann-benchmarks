@@ -13,11 +13,9 @@ env:
 before_install:
   - pip install -r requirements.txt
   - python install.py
-before_script:
-  - git config --global user.email "vaibhavnit007@gmail.com"
-  - git config --global user.name "VaibhavN007"
 after_success:
-  - ./upload-images.sh
+  - chmod 777 upload-images.sh
+  - bash upload-images.sh
 script:
   - python run.py --algorithm kgraph --dataset mnist-784-euclidean
   - python plot.py --dataset mnist-784-euclidean --output plot.png
