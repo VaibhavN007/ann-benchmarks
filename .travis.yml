@@ -13,19 +13,13 @@ env:
 before_install:
   - pip install -r requirements.txt
   - python install.py
-
+before_script:
+  - git config --global user.email "vaibhavnit007@gmail.com"
+  - git config --global user.name "VaibhavN007"
+after_success:
+  - ./upload-images.sh
 script:
   - python run.py --algorithm kgraph --dataset mnist-784-euclidean
   - python plot.py --dataset mnist-784-euclidean --output plot.png
   - python -m unittest test/test-metrics.py
   - python create_website.py --outputdir . --scatter --latex
-deploy:
-  provider: releases
-  api_key:
-    secure: 834d0b3a98e2273d8f0be8e51cd211aaa2bb5f1e
-  file: 
-    - results/mnist-784-euclidean.png
-  skip_cleanup: true
-  on:
-    repo: VaibhavN007/ann-benchmarks
-    tags: true
