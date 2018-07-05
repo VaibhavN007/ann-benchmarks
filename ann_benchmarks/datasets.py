@@ -225,7 +225,15 @@ def word2bits(out_fn, path, fn):
         write_output(X_train, X_test, out_fn, 'euclidean')  # TODO: use hamming
 
 
+def sign_language_digits(out_fn):
+    X = np.load('X.npy')
+    X_train, X_test = train_test_split(X, test_size=0.1)
+    print("train shape ", X_train.shape)
+    print("test shape ", X_test.shape)
+    write_output(X_train, X_test, out_fn, 'euclidean')
+
 DATASETS = {
+    'sign-language-digits': sign_language_digits, 
     'fashion-mnist-784-euclidean': fashion_mnist,
     'gist-960-euclidean': gist,
     'glove-25-angular': lambda out_fn: glove(out_fn, 25),
