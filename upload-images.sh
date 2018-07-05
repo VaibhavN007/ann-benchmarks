@@ -18,7 +18,8 @@ git clone --quiet https://VaibhavN007:${GH_TOKEN}@github.com/VaibhavN007/ann-res
 
 #go into diractory and copy data we're interested in to that directory
 cd ann-results
-cp -Rf $HOME/eval_results/* .
+mkdir 'build'$TRAVIS_BUILD_NUMBER
+cp -Rf $HOME/eval_results/* ./'build'$TRAVIS_BUILD_NUMBER
 
 #add, commit and push files
 git add -f .
